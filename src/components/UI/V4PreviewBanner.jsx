@@ -28,7 +28,15 @@ export function V4PreviewBanner() {
         lineHeight: '18px',
       }}
     >
-      <a href="https://freetv.today/v4/" style={{ color: 'inherit', fontWeight: 600 }}>
+      <a
+        href="https://freetv.today/v4/"
+        onClick={(event) => {
+          event.preventDefault();
+          event.stopPropagation();
+          window.location.assign(event.currentTarget.href);
+        }}
+        style={{ color: 'inherit', fontWeight: 600 }}
+      >
         Try the new FreeTV Viewer! (v4.0.0-beta)
       </a>
       <button
