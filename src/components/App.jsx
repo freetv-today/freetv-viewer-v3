@@ -17,6 +17,7 @@ import { Category } from '@pages/Category';
 import { NowPlaying } from '@pages/NowPlaying';
 import { ShowToastAlert } from '@components/UI/ToastAlerts';
 import { PWAInstallPrompt } from '@components/UI/PWAInstallPrompt';
+import { V4PreviewBanner } from '@components/UI/V4PreviewBanner';
 import { NotFound } from '@pages/_404';
 import '@/style.css';
 
@@ -59,6 +60,7 @@ export function App() {
   // Render the app when not switching playlists
   return (
     <main>
+      <V4PreviewBanner />
       <PWAInstallPrompt />
       <Router>
         <Route path="/" component={HomeRoute} exact />
