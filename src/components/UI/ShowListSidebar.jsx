@@ -11,6 +11,11 @@ import { useModalManager } from '@/hooks/useModalManager';
 import { capitalizeFirstLetter, getRandomCategory } from '@/utils';
 import { useCategories } from '@/hooks/useCategories';
 
+const titleCollator = new Intl.Collator(undefined, {
+  numeric: true,
+  sensitivity: 'base',
+});
+
 /**
  * ShowListSidebar - Main sidebar component displaying shows with grouping and modal support
  * @param {Object} props
@@ -88,14 +93,14 @@ export function ShowListSidebar({ context, category }) {
   const sortedIndividualShows = individualShows.sort((a, b) => {
     const titleA = a.title.replace(/^The\s+/i, '');
     const titleB = b.title.replace(/^The\s+/i, '');
-    return titleA.localeCompare(titleB);
+    return titleCollator.compare(titleA, titleB);
   });
 
   // Create sorted group entries for display (sort by group name, ignoring "The")
   const sortedGroups = Object.keys(validGroups).sort((a, b) => {
     const groupA = a.replace(/^The\s+/i, '');
     const groupB = b.replace(/^The\s+/i, '');
-    return groupA.localeCompare(groupB);
+    return titleCollator.compare(groupA, groupB);
   });
 
   // Combine and sort all items (groups and individual shows) for final display order
@@ -121,7 +126,7 @@ export function ShowListSidebar({ context, category }) {
   });
 
   // Final sort of all items
-  allItems.sort((a, b) => a.sortKey.localeCompare(b.sortKey));
+  allItems.sort((a, b) => titleCollator.compare(a.sortKey, b.sortKey));
   if (category) {
     log(`Selected category: ${capitalizeFirstLetter(category)}`);
     log(`There are ${shows.length} titles in this category`);

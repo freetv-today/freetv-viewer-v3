@@ -1,5 +1,10 @@
 import { ButtonShowTitleNav } from '@components/Navigation/ButtonShowTitleNav';
 
+const titleCollator = new Intl.Collator(undefined, {
+  numeric: true,
+  sensitivity: 'base',
+});
+
 /**
  * AccordionGroupButtons - Creates a Bootstrap accordion for grouped shows
  * @param {Object} props
@@ -20,7 +25,7 @@ export function AccordionGroupButtons({ groupName, shows, accordionId, onShowMod
   const sortedShows = shows.sort((a, b) => {
     const titleA = a.title.replace(/^The\s+/i, '');
     const titleB = b.title.replace(/^The\s+/i, '');
-    return titleA.localeCompare(titleB);
+    return titleCollator.compare(titleA, titleB);
   });
 
   const collapseId = `collapse-${accordionId}`;
