@@ -4,7 +4,7 @@ FreeTV Viewer is a browser-based interface for exploring and watching FreeTV’s
 
 This repository contains the code from versions 1.0.0-beta to 3.0.1-beta.
 
-Check the Releases if you want to download this old code.
+Check the [Releases](https://github.com/freetv-today/freetv-viewer-v3/releases) if you want to download old vesrions of the code.
 
 The latest version can be found at: https://github.com/freetv-today/freetv-viewer/
 
