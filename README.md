@@ -1,4 +1,4 @@
-# FreeTV Viewer (v3.0.1)
+# FreeTV Viewer: Deprecated Code Archive
 
 FreeTV Viewer is a browser-based interface for exploring and watching FreeTV’s hand-picked collection of shows and movies hosted by the Internet Archive.
 
@@ -12,6 +12,6 @@ The code in this archive is considered deprecated and is no longer supported.
 
 It is saved here for historical purposes.
 
-## Latest version
+### Latest version
 
 You can always find the latest version of the viewer online at: https://freetv.today
